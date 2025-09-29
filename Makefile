@@ -1,12 +1,28 @@
-# ---------------------------
-# Frontend
-# ---------------------------
-.PHONY: front-up front-build front-down
-front-up:
-	docker compose -f docker-compose.yml up --build -d
+###########################################################
+# Basic commands
+###########################################################
 
-front-down:
-	docker compose -f docker-compose.yml down
+serve:
+	docker compose up -d --build
 
-front-build:
-	docker compose -f docker-compose.yml run --rm frontend pnpm run build
+down:
+	docker compose down
+
+logs:
+	docker compose logs -f
+
+###########################################################
+# Servicios individuales
+###########################################################
+
+front:
+	docker compose up --build frontend
+
+back:
+	docker compose up --build backend
+
+front-d:
+	docker compose up -d --build frontend
+
+back-d:
+	docker compose up -d --build backend
