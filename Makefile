@@ -1,7 +1,6 @@
 ###########################################################
 # Basic commands
 ###########################################################
-
 serve:
 	docker compose up -d --build
 
@@ -15,14 +14,14 @@ logs:
 # Servicios individuales
 ###########################################################
 
-front:
-	docker compose up --build frontend
-
-back:
-	docker compose up --build backend
-
-front-d:
+serve-front:
 	docker compose up -d --build frontend
 
-back-d:
+serve-back:
 	docker compose up -d --build backend
+
+down-front:
+	docker compose stop frontend && docker compose rm -f frontend
+
+down-back:
+	docker compose stop backend && docker compose rm -f backend
