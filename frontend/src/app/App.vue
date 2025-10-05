@@ -1,30 +1,63 @@
-<script setup lang="ts">
-import HelloWorld from '../components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <v-app>
+    <Header @toggle-drawer="drawer = !drawer" />
+
+    <Sidebar v-model="drawer" />
+
+    <v-main>
+      <v-container fluid class="content-container">
+        <router-view />
+      </v-container>
+    </v-main>
+
+    <div class="floating-chat-wrapper">
+      <FloatingChat />
+    </div>
+  </v-app>
 </template>
 
+<script lang="ts">
+import { ref } from 'vue'
+import Header from '../layouts/Header.vue';
+import Sidebar from '../layouts/Sidebar.vue';
+import FloatingChat from '../layouts/FloatingChat.vue';
+
+export default {
+  components: { Header, Sidebar, FloatingChat },
+  setup() {
+    const drawer = ref(false)
+    return { drawer }
+  }
+};
+</script>
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+v-main {
+  background-color: #F3F4F6;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.floating-chat-wrapper {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.content-container {
+  padding: 2rem;
+}
+
+router-view > * {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 16px;
+}
+
+body {
+  color: #111827;
+}
+
+h2, h3, h4, h5, h6 {
+  color: #6B7280;
 }
 </style>
