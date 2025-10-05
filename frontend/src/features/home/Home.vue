@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <h1>Home Page</h1>
-    <p>Bienvenido a la app 🚀</p>
-  </div>
+  hola
+  fasdf
+  fasdfasd
+  fasdf
 </template>
 
 <script setup lang="ts">
