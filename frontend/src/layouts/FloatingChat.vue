@@ -1,7 +1,7 @@
 <template>
   <div class="floating-chat-wrapper">
     <!-- Botón flotante -->
-     <div>
+     <div :class="{'chat-open': openChat}">
       <v-btn
         color="#3A76A9"
         dark
@@ -18,9 +18,9 @@
      </div>
 
     <!-- Burbuja de mensaje que se desliza -->
-    <transition name="slide-right">
-      <!-- v-if="(showTip || hover) && !openChat"  -->
+    <transition :name="openChat ? '' : 'slide-right'">
       <div 
+      v-if="(showTip || hover) && !openChat" 
       class="chat-tip">
         🤖 ¡Hey! ¿Necesitas ayuda?
       </div>
@@ -43,7 +43,7 @@
 </template>
 
 <script lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 
 export default {
   setup() {
@@ -56,6 +56,10 @@ export default {
     onMounted(() => {
       setTimeout(() => showTip.value = true, 1500)
       setTimeout(() => showTip.value = false, 10000)
+    })
+
+    watch(hover, (newVal) => {
+      if(newVal) showTip.value = false
     })
 
     const sendMessage = () => {
@@ -75,10 +79,15 @@ export default {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+  width: 300px;
 }
 
 .floating-btn {
   z-index: 2;
+}
+
+.chat-open {
+  margin: 0 auto;
 }
 
 .chat-tip {
@@ -98,7 +107,7 @@ export default {
 /* Chat flotante */
 .chat-floating {
   position: absolute;
-  bottom: 60px; /* encima del botón */
+  bottom: 60px;
   right: 0;
   width: 300px;
   background-color: white;

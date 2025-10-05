@@ -1,8 +1,5 @@
 <template>
-  hola
-  fasdf
-  fasdfasd
-  fasdf
+ Prueba
 </template>
 
 <script setup lang="ts">
