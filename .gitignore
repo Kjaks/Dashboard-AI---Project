@@ -1,0 +1,105 @@
+# FRONTEND IGNORE
+# Dependencias
+/frontend-service/node_modules
+/frontend-service/.pnp
+/frontend.pnp.js
+
+# Producción
+/frontend-service/dist
+/frontend-service/build
+
+# Archivos de logs
+/frontend-service/npm-debug.log*
+/frontend-service/yarn-debug.log*
+/frontend-service/yarn-error.log*
+/frontend-service/pnpm-debug.log*
+
+# Editor de código
+/frontend-service/.idea
+/frontend-service/.vscode
+/frontend-service/*.suo
+/frontend-service/*.ntvs*
+/frontend-service/*.njsproj
+/frontend-service/*.sln
+/frontend-service/*.sw?
+
+# Sistema operativo
+/frontend-service/.DS_Store
+/frontend-service/Thumbs.db
+
+# Configuración local
+/frontend-service/.env.local
+/frontend-service/.env.*.local
+
+# Cache de Vite/Vue CLI
+/frontend-service/.vite
+/frontend-service/.cache
+
+# BACKEND IGNORE
+
+# Byte-compiled / cache
+/backend-service/app/__pycache__/
+/backend-service/app/*.py[cod]
+/backend-service/app/*$py.class
+
+# Virtual environments
+/backend-service/app/.venv/
+/backend-service/app/venv/
+/backend-service/app/env/
+/backend-service/app/ENV/
+/backend-service/app/.venv*/
+/backend-service/app/env*/
+/backend-service/app/venv*/
+
+# Distribution / packaging
+/backend-service/app/build/
+/backend-service/app/dist/
+/backend-service/app/*.egg-info/
+/backend-service/app/.eggs/
+
+# Logs and debugging
+/backend-service/app/*.log
+/backend-service/app/*.pot
+/backend-service/app/*.pyc
+/backend-service/app/*.pyo
+/backend-service/app/*.pyd
+/backend-service/app/*.sqlite3
+/backend-service/app/coverage.xml
+/backend-service/app/.pytest_cache/
+/backend-service/app/.tox/
+/backend-service/app/.nox/
+/backend-service/app/.coverage
+/backend-service/app/.cache/
+
+# IDE / Editor settings
+/backend-service/app/.vscode/
+/backend-service/app/.idea/
+/backend-service/app/*.swp
+/backend-service/app/*.swo
+
+# Environment variables / secrets
+/backend-service/app/.env
+/backend-service/app/.env.*
+/backend-service/app/*.env
+
+# OS generated files
+/backend-service/app/.DS_Store
+/backend-service/app/Thumbs.db
+
+# Docker
+/backend-service/app/docker-compose.override.yml
+/backend-service/app/*.pid
+
+# Test and reports
+/backend-service/app/htmlcov/
+/backend-service/app/junit.xml
+
+# Migrations (if using Alembic or similar)
+/backend-service/app/alembic.ini
+/backend-service/app/migrations/__pycache__/
+/backend-service/app/migrations/*.pyc
+/backend-service/app/migrations/versions/*.pyc
+
+# FastAPI specific (if using Uvicorn reload cache)
+/backend-service/app/*.db-journal
+/backend-service/app/*.sqlite-journal

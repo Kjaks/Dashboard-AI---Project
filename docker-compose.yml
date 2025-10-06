@@ -1,18 +1,38 @@
 services:
   frontend:
     build:
-      context: ./frontend
+      context: ./frontend-service
       dockerfile: Dockerfile.dev
     ports:
       - "5173:5173"
     volumes:
-      - ./frontend:/app
-      # - /app/node_modules
+      - ./frontend-service:/app
+    networks:
+      - ai_net
+  
   backend:
     build:
-      context: ./backend
+      context: ./backend-service
       dockerfile: Dockerfile.dev
     ports:
       - "8000:8000"
     volumes:
-      - ./backend/app:/app/app
+      - ./backend-service/app:/app/app
+    networks:
+      - ai_net
+  
+  db:
+    build:
+      context: ./db-service
+      dockerfile: Dockerfile.dev
+    env_file:
+      - ./db-service/.env
+    ports:
+      - "5432:5432"
+    networks:
+      - ai_net
+
+networks:
+  ai_net:
+    external: true
+

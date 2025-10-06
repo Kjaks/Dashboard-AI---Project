@@ -2,17 +2,17 @@
 # Frontend commands
 ###########################################################
 
-serve-front:
+serve-front-service:
 	docker compose up -d --build frontend
 
-down-front:
+down-front-service:
 	docker compose stop frontend && docker compose rm -f frontend
 
-logs-front:
+logs-front-service:
 	docker compose logs -f frontend
 
-test-front:
+test-front-service:
 	docker compose run --rm frontend npm run test
 
-rebuild-front:
+rebuild-front-service:
 	docker compose build --no-cache frontend
