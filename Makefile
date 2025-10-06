@@ -11,7 +11,7 @@ logs:
 	docker compose logs -f
 
 ###########################################################
-# Servicios individuales
+# Individual services
 ###########################################################
 
 serve-front:
