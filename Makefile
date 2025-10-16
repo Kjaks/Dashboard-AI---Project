@@ -18,13 +18,13 @@ serve-front-service:
 	docker compose up -d --build frontend
 
 serve-back-service:
-	docker compose up -d --build backend
+	docker compose up -d --build db && docker compose up -d --build backend
 
 down-front-service:
 	docker compose stop frontend && docker compose rm -f frontend
 
 down-back-service:
-	docker compose stop backend && docker compose rm -f backend
+	docker compose stop db && docker compose rm -f db && docker compose stop backend && docker compose rm -f backend
 
 ###########################################################
 # Ollama + DeepSeek

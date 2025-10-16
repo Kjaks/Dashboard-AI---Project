@@ -39,12 +39,22 @@
 
 # Byte-compiled / cache
 /backend-service/app/__pycache__/
+/backend-service/.pytest_cache/
+/backend-service/app/controllers/v1/__pycache__/
+/backend-service/app/controllers/v1/endpoints/__pycache__/
+/backend-service/app/core/__pycache__/
+/backend-service/app/models/__pycache__/
+/backend-service/app/repositories/__pycache__/
+/backend-service/app/schemas/__pycache__/
+/backend-service/app/services/__pycache__/
+/backend-service/app/tests/__pycache__/
+/backend-service/app/utils/__pycache__/
 /backend-service/app/*.py[cod]
 /backend-service/app/*$py.class
 
 # Virtual environments
 /backend-service/app/.venv/
-/backend-service/app/venv/
+/backend-service/venv/
 /backend-service/app/env/
 /backend-service/app/ENV/
 /backend-service/app/.venv*/

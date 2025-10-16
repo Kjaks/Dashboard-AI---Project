@@ -17,7 +17,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./backend-service/app:/app/app
+      - ./backend-service/app:/app
     networks:
       - ai_net
   
