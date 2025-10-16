@@ -1,0 +1,13 @@
+poner campos que no estan en el schema y que no lleguen al backend el custome hash y assistan assistant:_hash
+
+En oconfiguracio admin
+- No puedo cerar un usairo para otra emrpesa
+
+- No se pede cambiar plantilla en editar asistente
+
+Test unitarios a la web
+
+
+http://45.150.15.211/
+jjcosta@grupozambudio.es || admin
+BE6mSPtbgViEK5i
