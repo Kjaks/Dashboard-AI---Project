@@ -13,6 +13,7 @@
 /frontend-service/yarn-debug.log*
 /frontend-service/yarn-error.log*
 /frontend-service/pnpm-debug.log*
+/frontend-service/coverage
 
 # Editor de código
 /frontend-service/.idea
