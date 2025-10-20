@@ -29,8 +29,7 @@
     <!-- Chat completo -->
     <transition name="slide-up">
       <div v-if="openChat" class="chat-floating">
-        <div class="chat-header">Asistente Robot 🤖</div>
-        <div class="chat-log">
+        <div class="chat-log" style="height: 10rem;">
           <div v-for="(m,i) in log" :key="i">
             <strong>{{ m.user }}:</strong> {{ m.text }}
           </div>
@@ -44,6 +43,7 @@
 
 <script lang="ts">
 import { ref, onMounted, watch } from 'vue'
+import axios from 'axios'
 
 export default {
   setup() {
@@ -62,11 +62,30 @@ export default {
       if(newVal) showTip.value = false
     })
 
-    const sendMessage = () => {
+    const sendMessage = async () => {
       if (!message.value) return
+
       log.value.push({ user: 'Tú', text: message.value })
-      log.value.push({ user: 'Bot 🤖', text: 'Bip bop… procesando tus datos!' })
-      message.value = ''
+
+      try {
+        log.value.push({ user: 'Bot 🤖', text: 'Bip bop… procesando tus datos!' })
+
+        const response = await axios.post('http://localhost:8000/deepseek/chat', {
+          message: message.value
+        }, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+
+        log.value.pop()
+        log.value.push({ user: 'Bot 🤖', text: response.data?.response || 'No hubo respuesta.' })
+      } catch (error: any) {
+        log.value.pop()
+        log.value.push({ user: 'Bot 🤖', text: `Error: ${error.response?.data?.detail || error.message}` })
+      } finally {
+        message.value = ''
+      }
     }
 
     return { openChat, showTip, hover, message, log, sendMessage }
