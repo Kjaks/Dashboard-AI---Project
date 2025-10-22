@@ -5,8 +5,9 @@ serve:
 	make serve-ollama && docker compose up -d --build 
 
 down:
-	docker compose down && make down-ollama
-
+	docker compose down --volumes --remove-orphans
+	make down-ollama
+	
 logs:
 	docker compose logs -f
 
