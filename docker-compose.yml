@@ -10,18 +10,18 @@ services:
     networks:
       - ai_net
   
-  backend:
-    build:
-      context: ./backend-service
-      dockerfile: Dockerfile.dev
-    env_file:
-      - ./backend-service/.env
-    ports:
-      - "8080:8080"
-    volumes:
-      - ./backend-service:/app
-    networks:
-      - ai_net
+  # backend:
+  #   build:
+  #     context: ./backend-service
+  #     dockerfile: Dockerfile.dev
+  #   env_file:
+  #     - ./backend-service/.env
+  #   ports:
+  #     - "8080:8080"
+  #   volumes:
+  #     - ./backend-service:/app
+  #   networks:
+  #     - ai_net
   
   db:
     build:
