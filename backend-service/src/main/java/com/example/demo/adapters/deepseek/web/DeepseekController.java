@@ -3,6 +3,7 @@ package com.example.demo.adapters.deepseek.web;
 import com.example.demo.application.deepseek.usecase.AskDeepseek;
 import com.example.demo.application.deepseek.dto.DeepseekRequest;
 import com.example.demo.application.deepseek.dto.DeepseekResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/deepseek")
 @Tag(name = "Deep Seek", description = "Endpoints for Deepseek operations")
+@SecurityRequirement(name = "bearerAuth")
 public class DeepseekController {
 
     private final AskDeepseek askDeepseek;

@@ -21,7 +21,7 @@ public class AskDeepseek {
     }
 
     public DeepseekResponse execute(DeepseekRequest request) {
-        Question question = new Question(request.getQuestion());
+        Question question = new Question(request.question());
 
             String rawJson = deepseekRepository.ask(question);
 
